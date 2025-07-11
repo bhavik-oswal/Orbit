@@ -152,3 +152,82 @@ The request body must be in JSON format and include the following fields:
 ## Notes
 - Both fields are required and must be valid.
 - Returns a JWT token for authentication upon successful login.
+
+---
+
+### Get User Profile
+`GET /users/profile`
+
+## Description
+
+Returns the authenticated user's profile information. Requires a valid JWT token in the `Authorization` header as a Bearer token or in the `token` cookie.
+
+## Authentication
+
+- This endpoint is protected. You must be logged in and provide a valid token.
+
+## Responses
+
+- **200 OK**
+  - Returns the user profile object.
+  - Example:
+    ```json
+    {
+      "_id": "<user_id>",
+      "fullname": {
+        "firstname": "John",
+        "lastname": "Doe"
+      },
+      "email": "john.doe@example.com"
+    }
+    ```
+
+- **401 Unauthorized**
+  - Missing, invalid, or blacklisted token.
+  - Example:
+    ```json
+    {
+      "message": "Unauthorized access"
+    }
+    ```
+
+## Notes
+- Requires authentication.
+- Returns the current user's data.
+
+---
+
+### Logout
+`GET /users/logout`
+
+## Description
+
+Logs out the authenticated user by clearing the authentication cookie and blacklisting the JWT token. Requires a valid JWT token in the `Authorization` header as a Bearer token or in the `token` cookie.
+
+## Authentication
+
+- This endpoint is protected. You must be logged in and provide a valid token.
+
+## Responses
+
+- **200 OK**
+  - User logged out successfully.
+  - Example:
+    ```json
+    {
+      "message": "Logged out"
+    }
+    ```
+
+- **401 Unauthorized**
+  - Missing, invalid, or blacklisted token.
+  - Example:
+    ```json
+    {
+      "message": "Unauthorized access"
+    }
+    ```
+
+## Notes
+- Requires authentication.
+- The token is blacklisted and cannot be used again.
