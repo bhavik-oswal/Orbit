@@ -1,0 +1,67 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const FinishRide = (props) => {
+  return (
+    <div>
+      <h5
+        onClick={() => {
+          props.setFinishRidePanel(false);
+        }}
+        className="p-1 text-center absolute top-0 w-[93%]"
+      >
+        <i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
+      </h5>
+      <h3 className="text-2xl font-semibold mb-5">Finish this ride!</h3>
+
+      <div className='flex items-center justify-between p-3 bg-yellow-400 rounded-lg mt-4'>
+        <div className='flex items-center gap-3'>
+            <img className='h-10 w-10 rounded-full object-cover' src="data:image/jpeg;base64,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" alt="face" />
+            <h2 className='text-lg font-medium'>Abhijeet Mitra</h2>
+        </div>
+        <h5 className='text-lg font-semibold'>2.6 KM</h5>
+      </div>
+
+      <div className="flex gap-2 flex-col justify-between items-center">
+        <div className="w-full mt-5">
+          <div className="flex items-center gap-5 p-3 border-b-1 border-gray-300">
+            <i className="text-lg ri-map-pin-user-fill"></i>
+            <div>
+              <h3 className="text-lg font-medium">562/11-A</h3>
+              <p className="text-sm -mt-1 text-gray-600">
+                Sanky Tank, Bengaluru
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-5 p-3 border-b-1 border-gray-300">
+            <i className="text-lg ri-map-pin-fill"></i>
+            <div>
+              <h3 className="text-lg font-medium">562/11-A</h3>
+              <p className="text-sm -mt-1 text-gray-600">
+                Sanky Tank, Bengaluru
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-5 p-3">
+            <i className="text-lg ri-currency-line"></i>
+            <div>
+              <h3 className="text-lg font-medium">₹193.20</h3>
+              <p className="text-sm -mt-1 text-gray-600">Cash Cash</p>
+            </div>
+          </div>
+        </div>
+        <div className='mt-10 w-full'>
+          
+            <Link
+            to="/captain-home"
+          className="w-full mt-5 bg-green-600 flex justify-center text-white font-semibold p-2 rounded-lg"
+        >
+          Finish Ride
+        </Link>          
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default FinishRide
