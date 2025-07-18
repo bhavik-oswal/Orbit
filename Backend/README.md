@@ -600,10 +600,6 @@ Creates a new ride request for a user.
 
 ---
 
-Here's the **Markdown** for the missing `/rides/get-fare` endpoint, formatted to match the style of the second README file:
-
----
-
 ### Get Ride Fare Estimate
 
 `GET /rides/get-fare?pickup=<pickup>&destination=<destination>`
